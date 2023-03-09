@@ -65,7 +65,7 @@ void menu(){
     switch (operacion)
     {
     case 1:
-        bubbleSort(char a[], char *b[]);
+        
         break;
     case 2:
         selectionSort();
