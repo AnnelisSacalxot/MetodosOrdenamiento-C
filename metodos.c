@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define CLASS_SIZE 28
 
 /*
 gcc metodos.c -o metodosFuncional
@@ -9,15 +10,38 @@ gcc metodos.c -o metodosFuncional
 
 //declarando funcion
 void menu();
-void bubbleSort();
+void bubbleSort(const char a[], char * b[]);
 void selectionSort();
 void insertionSort();
 void quickSort();
 void salir();
 
-int main(){
+int main(void){
 
 menu();
+
+//burbuja
+int i, j;
+
+    // inicializo el array de char
+    char * s_caracteres[CLASS_SIZE];
+    char arrayC[CLASS_SIZE] = {'a','s','d','f','g','h','j','k','l','p','o','i','u','y','t','r','e','w','q','L','K','J','H','G','F','D','S','A'};
+    // llamo a mi metodo
+    bubbleSort(arrayC,s_caracteres);
+
+    // imprimipendo el orden del principio
+    printf("Lista desordenada: \n");
+    for (i=0;i<CLASS_SIZE;i++){
+         printf("%c\n", arrayC[i]);
+    }
+
+    // imprimipendo el orden final
+    printf("Lista ordenada: \n");
+    for (i=0;i<CLASS_SIZE;j++){
+        printf("%c\n", *s_caracteres[j]);
+    }
+
+
 return 0;
 
 }
@@ -41,7 +65,7 @@ void menu(){
     switch (operacion)
     {
     case 1:
-        bubbleSort();
+        bubbleSort(char a[], char *b[]);
         break;
     case 2:
         selectionSort();
@@ -66,10 +90,25 @@ void menu(){
 
 //bubbleSort
 
-void bubbleSort(){
+void bubbleSort(const char a[], char * b[]){
+    char * temporal;
+    int i,j;
 
+    for (i=0;i<CLASS_SIZE;i++){
+        b[i] = (char *)(a) + i;
+    }
+
+    // ordenando
+    for(i=0;i<CLASS_SIZE;i++){
+        for(j=i+1;j<CLASS_SIZE-1;j++){
+            if(*b[j-1]>*b[j]){
+                temporal = b[j];
+                b[j] = b[j-1];
+                b[j-1] = temporal;
+            }
+        }   
+    }
 }
-
 //selectionSort
 
 void selectionSort(){
