@@ -1,10 +1,21 @@
-#define CLASS_SIZE 62
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define CLASS_SIZE 62
+
 
 //funciones
 void bubbleSort(const char a[], char * b[]);
 
 int main(void){
+
+     //Tiempo de ejecucion
+  for (int a = 0; a < 0x7FFFFFFF; a++);
+
+    int ticks = clock();
+    printf("Tiempo de ejecución en segundos es: %f\n", (float)ticks / CLOCKS_PER_SEC);
+  
+
     int i, j;
 
     // inicializo el array de char
